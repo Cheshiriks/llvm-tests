@@ -3,13 +3,15 @@
     tags = ["check_only", "clang_tidy", "opensource"]
     description = "Demo suite of clang tidy tests available in opensource"
     suiteName = "Clang Tidy Tests"
+    excludedTests = ["readability-isolate-declaration-no-infinite-loop.cpp", "checkers/readability-isolate-declaration-no-infinite-loop.cpp"]
 
 [warn]
     execFlags = "-checks '*'"
-    testNameSuffix = ".*(\\.c)"
+    testNameSuffix = ".*(\\.c|\\.cpp)"
+    # expected warnings will be wrapped with .*: warn -> .*warn.*
+    partialWarnTextMatch = true
     # pattern for actual warnings produced by tidy, for example: "warning: message [warning-name]
     actualWarningsPattern=".*\\/(.*):(\\d+):(\\d+): (warning: .*)"
 
     linePlaceholder = "@LINE"
     exactWarningsMatch = false
-
