@@ -7,7 +7,7 @@
 
 [warn]
     execFlags = "-checks '*'"
-    testNameKeyword = ".*(\\.c|\\.cpp)"
+    testNameRegex = ".*(\\.c|\\.cpp)"
     # expected warnings will be wrapped with .*: warn -> .*warn.*
     partialWarnTextMatch = true
     # pattern for actual warnings produced by tidy, for example: "warning: message [warning-name]
